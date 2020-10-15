@@ -1,15 +1,3 @@
-// mongo "mongodb+srv://cluster0.8wyqg.mongodb.net/<clinicaMerello>" --username Ignacio-Merello
-// mongoose.connect('mongodb://localhost:27017/db-ejemplo', {
-
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb+srv://cluster0.8wyqg.mongodb.net/<clinicaMerello>', {
-// useNewUrlParser: true,
-// useUnifiedTopology: true,
-// useCreateIndex: true,
-// useFindAndModify: false
-// });
-// module.exports = mongoose;
-
 const dbconnect = () => {
 
     const mongoose = require('mongoose');
