@@ -10,7 +10,7 @@ const showUsers = (req, res) => {
             res.send(users)
         })
         .catch(error => (error));
-}
+};
 
 
 module.exports = {
