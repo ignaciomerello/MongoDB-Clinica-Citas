@@ -12,30 +12,28 @@ const showUsers = (req, res) => {
         .catch(error => (error));
 };
 const registerUser = async (req,res) => {
+    
+    let bodyData = req.body;
 
     try {
-
-        const bodyData = req.body;
-
         const user = await new UserModel({
-            //req.body metodo pinilla
             username: bodyData.username,
             email: bodyData.email,
             password: bodyData.password
-        }).insertOne();//create() tambien lo inserta (metodo pinilla)
-        res.send(console.log("no llega"));
+        }).save();
+
         res.send({
             message: "Account created",
-            username: user.username
-            // email: user.email,
-            // password: user.password
-        })
+            username: user.username,
+            email: user.email,
+            password: user.password
+        });
         
     } catch (error) {
 
         res.send(error);
         
-    }
+    };
 };
 
 module.exports = {
