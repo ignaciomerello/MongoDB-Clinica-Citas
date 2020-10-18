@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const bcrypt = require("bcryptjs");
 
+const moment = require("moment");
+
 const fs = require('fs');
 
 const showAppointments = (req, res) => {
@@ -21,14 +23,18 @@ const reserveAppointment = async (req, res) => {
         const appointment = await new AppointmentModel({
             userId: bodyData.userId,
             date: bodyData.date,
-            state: bodyData.state
+			state: bodyData.state,
+			title: bodyData.title,
+			description: bodyData.description
         }).save();
 
         res.send({
             message: "Appointment succesfully reserved",
             userId: appointment.userId,
             date: appointment.date,
-            state: appointment.state
+			state: appointment.state,
+			title: appointment.title,
+			description: appointment.description
         });
 
     } catch (error) {
