@@ -7,7 +7,6 @@ const UserSchema = mongoose.Schema({
         required:true //Indisplensable
     },
 
-
     email:{
         unique:true,
         type:String,
