@@ -34,7 +34,7 @@ app.delete('/users/goodbye', deleteUser);
 //Appointments Actions
 app.get('/appointments/showall', showAppointments);
 app.post('/appointments/reserves', reserveAppointment);
-app.post('/appointments/remove', deleteAppointment);
+app.delete('/appointments/remove', deleteAppointment);
 app.put('/appointments/cancel', cancelAppointment);
 
 

@@ -21,14 +21,17 @@ const registerUser = async (req, res) => {
         const user = await new UserModel({
             username: bodyData.username,
             email: bodyData.email,
-            password: bodyData.password
+            password: bodyData.password,
+            role: bodyData.role
         }).save();
 
         res.send({
             message: "Account created",
             username: user.username,
             email: user.email,
-            password: user.password
+            password: user.password,
+            role: bodyData.role
+
         });
 
     } catch (error) {

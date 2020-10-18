@@ -18,6 +18,12 @@ const UserSchema = mongoose.Schema({
         required:true //Indisplensable sequelize "AllowNull = false;"
     },
 
+    role:{
+        type:String,
+        enum:['Patient','Doctor','Administrative','Administrator'],
+        required:true //Indisplensable sequelize "AllowNull = false;"
+    },
+
 
 });
 

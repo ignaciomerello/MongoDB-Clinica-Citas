@@ -66,15 +66,15 @@ const deleteAppointment = async (req, res) => {
 const cancelAppointment = async (req, res) => {
     
     let appointmentId = req.body.id;
-    let state = req.bodyData.this.state;
+
 	AppointmentModel.findByIdAndUpdate(
-		id
+        this.state,
+        { state: "Cancelled",}
 	).then ( (appointmentCancelled) => {
 		
 		if (appointmentCancelled) {
 			res.send({
-                state = "Cancelled",
-				message: `Appointment ${appointmentCancelled.id} succesfully cancelled by: ${appointmentCancelled.userId} for: ${appointmentCancelled.date}`
+				message: `Appointment ${appointmentCancelled.id} deleted succesfully by: ${appointmentCancelled.userId} for: ${appointmentCancelled.date}`
 			});
 		} else {
 			res.status(404);
