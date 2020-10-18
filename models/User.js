@@ -23,6 +23,11 @@ const UserSchema = mongoose.Schema({
         enum:['Patient','Doctor','Administrative','Administrator'],
         required:true //Indisplensable sequelize "AllowNull = false;"
     },
+    
+    token:{
+        type:String,
+        default:'',
+    },
 
 
 });
