@@ -40,7 +40,7 @@ app.delete('/users/goodbye', auth, deleteUser);
 //Appointments Actions
 app.get('/appointments/showall', showAppointments);
 app.post('/appointments/reserves', reserveAppointment);
-app.delete('/appointments/remove', deleteAppointment);
-app.put('/appointments/cancel', cancelAppointment);
+app.delete('/appointments/remove/:id', deleteAppointment);
+app.put('/appointments/cancel/:id', auth,cancelAppointment);
 
 app.listen(PORT, ()=> console.log('Server working'));

@@ -46,10 +46,10 @@ const reserveAppointment = async (req, res) => {
 
 const deleteAppointment = async (req, res) => {
     
-    let appointmentId = req.body.id;
-
+	let appointmentId = req.params.id;
+	
 	AppointmentModel.findByIdAndDelete(
-		id
+		appointmentId
 	).then ( (removeAppointment) => {
 		
 		if (removeAppointment) {
@@ -71,26 +71,30 @@ const deleteAppointment = async (req, res) => {
 
 const cancelAppointment = async (req, res) => {
     
-    let appointmentId = req.body.id;
+    let appointmentId = req.params.id;
 
 	AppointmentModel.findByIdAndUpdate(
-        this.state,
-        { state: "Cancelled",}
+		appointmentId,
+		{ state: "cancelled",}
+		// appointmentId, {
+		// 	state: req.body.state,
+		// 	title: req.body.title
+		// }
 	).then ( (appointmentCancelled) => {
 		
 		if (appointmentCancelled) {
 			res.send({
-				message: `Appointment ${appointmentCancelled.id} deleted succesfully by: ${appointmentCancelled.userId} for: ${appointmentCancelled.date}`
+				message: `Appointment ${appointmentCancelled.id} has changed it's status succesfully by: ${appointmentCancelled.userId} for: ${appointmentCancelled.date}`
 			});
 		} else {
-			res.status(404);
+			res.status(418);
 			res.send({
-				error: `The ${appointmentId} appointment wasn't found.`
+				error: `The ${appointmentId} appointment could not be updated.`
 			})
 		};
 		
-	}).catch( (err) => {
-		console.log( err );
+	}).catch( (error) => {
+		console.log( error );
 	});
 };
 
