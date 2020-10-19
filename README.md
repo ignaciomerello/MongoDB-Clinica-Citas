@@ -83,7 +83,10 @@ app.put('/appointments/cancel/:id', auth, cancelAppointment);
 ```
 
 
+### Here you can see the use of Git Flow to develop the project:
 
+#### Git Flow Graph
+![alt text](/img/Git_Flow_Graph.png "Git Flow Graph")
 
 
 
