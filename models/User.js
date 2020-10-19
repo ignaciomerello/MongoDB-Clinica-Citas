@@ -4,24 +4,24 @@ const UserSchema = mongoose.Schema({
 
     username:{
         type:String,
-        required:true //Indisplensable
+        required:true
     },
 
     email:{
         unique:true,
         type:String,
-        required:true //Indisplensable sequelize "AllowNull = false;"
+        required:true
     },
 
     password:{
         type:String,
-        required:true //Indisplensable sequelize "AllowNull = false;"
+        required:true
     },
 
     role:{
         type:String,
         enum:['Patient','Doctor','Administrative','Administrator'],
-        required:true //Indisplensable sequelize "AllowNull = false;"
+        required:true
     },
     
     token:{

@@ -31,7 +31,7 @@ dbconnect();
 
 
 //User Actions
-app.get('/users/showall', auth, showUsers);
+app.get('/users/showall', showUsers);
 app.post('/users/register', registerUser);
 app.post('/users/login', loginUser);
 app.get('/users/logout', loginOut);
