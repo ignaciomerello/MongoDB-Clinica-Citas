@@ -16,6 +16,14 @@ const showUsers = (req, res) => {
         })
         .catch(error => (error));
 };
+
+const showUser = (req, res) => {
+    UserModel.findOne({})
+        .then(users => {
+            res.send(users)
+        })
+        .catch(error => (error));
+};
 const registerUser = async (req, res) => {
 
     let bodyData = req.body;
@@ -138,5 +146,6 @@ module.exports = {
     registerUser,
     loginUser,
     deleteUser,
-    loginOut
+    loginOut,
+    showUser
 };
