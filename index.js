@@ -32,7 +32,7 @@ dbconnect();
 
 //User Actions
 app.get('/users/showall', showUsers);
-app.get('/profile', auth, showUser);
+app.get('/user', showUser);
 app.post('/users/register', registerUser);
 app.post('/users/login', loginUser);
 app.get('/users/logout', loginOut);
