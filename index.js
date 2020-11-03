@@ -6,7 +6,8 @@ const auth = require("./mw/auth");
 require('dotenv').config();
 
 //User Controller
-const {showUsers, showUser} = require('./db/dbuser');
+const {showUser} = require('./db/dbuser');
+const {showUsers} = require('./db/dbuser');
 const {registerUser} = require('./db/dbuser');
 const {loginUser} = require('./db/dbuser');
 const {deleteUser} = require('./db/dbuser');
@@ -31,8 +32,8 @@ dbconnect();
 
 
 //User Actions
+app.get('/user', auth, showUser);
 app.get('/users/showall', showUsers);
-app.get('/user', showUser);
 app.post('/users/register', registerUser);
 app.post('/users/login', loginUser);
 app.get('/users/logout', loginOut);

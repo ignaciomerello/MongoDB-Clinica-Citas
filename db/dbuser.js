@@ -18,9 +18,9 @@ const showUsers = (req, res) => {
 };
 
 const showUser = (req, res) => {
-    UserModel.findOne({})
-        .then(users => {
-            res.send(users)
+    UserModel.findById(req.user.id)
+        .then(user => {
+            res.send(user)
         })
         .catch(error => (error));
 };
